@@ -146,6 +146,7 @@ func variable() {
 	var b, c int = 1, 2
 	fmt.Println(b, c)
 
+	/***第一种，指定变量类型，如果没有初始化，则变量默认为零值***/
 	//声明一个变量并初始化
 	var aa = "RUNOOB"
 	fmt.Println(aa)
@@ -162,13 +163,64 @@ func variable() {
 	var f float64
 	var bbb bool
 	var s string
-	fmt.Printf("%v %v %q\n", i, f, bbb, s)
+	fmt.Printf("%v %v %v %q\n", i, f, bbb, s)
+
+	/***第二种，根据值自行判定变量类型***/
+	//var v_name = value
+
+	var d = true
+	fmt.Println(d)
+
+	/***第三种，如果变量已经使用 var 声明过了，再使用 := 声明变量，就产生编译错误，格式：
+	v_name := value
+
+	例如：
+	var intVal int
+	intVal := 1	// 这时候会产生编译错误，因为 intVal 已经声明，不需要重新声明
+	直接使用下面的语句即可
+	intVal := 1	// 此时不会产生编译错误，因为有声明新的变量，因为 := 是一个声明语句
+	intVal := 1 相等于：
+	var intVal int
+	intVal = 1
+	*/
+	// 可以将 var f string = "Runoob" 简写为 f:="Runoob":
+	fStr := "Runoob" // var f string = "Runoob"
+	fmt.Println(fStr)
+
+	/*多变量声明
+	类型相同多个变量，非全局变量
+	var vname1, vname2, vname3 type
+	vname1, vname2, vname3 = v1, v2, v3
+
+	var vname1, vname2, vname3 = v1, v2, v3	// 和 Python很像，不需要显式声明变量类型，自动推断
+	vname1, vname2, vname3 := v1, v2, v3	//出现在 := 左侧的变量不应该是已经被声明过的，否则会导致编译错误
+
+	// 这种因式分解关键字的用法一般用于声明全局变量
+	var (
+		vname1 v_type1
+		vname2 v_type2
+	)
+	*/
+	var x, y int
+	var (
+		a1 int
+		b1 bool
+	)
+
+	var c1, d1 int = 1, 2
+	var e1, f1 = 123, "hello"
+
+	// 这种不带声明格式的只能在函数体中出现
+	//g, h := 123, "hello"
+
+	g, h := 123, "hello"
+	fmt.Println(x, y, a1, b1, c1, d1, e1, f1, g, h)
 }
 
 func main() {
 	/* 这是我第一个简单的程序 */
 	// fmt.Println("Hello, World!")
-	// fmt.Println("菜鸟教程：runnoob.com")
+	// fmt.Println("菜鸟教程：runoob.com")
 
 	//关键字
 	// keyWord()
